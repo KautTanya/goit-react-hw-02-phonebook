@@ -43,7 +43,7 @@ filter = (contacts, filter) => {
     contact.name.toLowerCase().includes(normalizedFilter));
   
   if (visibleContacts.length < 1) {
-    Notify.warning('No matches =(');
+    Notify.warning('This contact is not in phonebook');
   }
   return visibleContacts;
 };
@@ -73,7 +73,7 @@ deleteContact = contactId => {
            <Filter filter={filter} changeFilter={this.changeFilter}/>
             
           <ContactList 
-            states={this.filter(contacts, filter)}
+            contacts={this.filter(contacts, filter)}
             deleteContact = {this.deleteContact}
             />
                     
